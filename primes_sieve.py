@@ -1,5 +1,6 @@
 # we will use the sieve of Eratosthenes to find all primes below a given number
 from math import sqrt
+import sys
 
 def primes_sieve(limit):
     nums =[True] * (limit + 1)
@@ -11,3 +12,10 @@ def primes_sieve(limit):
     return dict(enumerate(nums))
 
 print(primes_sieve(int(input("Enter the number: "))))
+
+if __name__ == "__main__":
+    if len(sys.argv) > 1:
+        number = int(sys.argv[1])
+        print(primes_sieve(number))
+    else:
+        print("Please provide a number as a command-line argument.")
