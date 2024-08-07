@@ -11,7 +11,6 @@ def primes_sieve(limit):
                 nums[j] = False
     return dict(enumerate(nums))
 
-print(primes_sieve(int(input("Enter the number: "))))
 
 if __name__ == "__main__":
     if len(sys.argv) > 1:
