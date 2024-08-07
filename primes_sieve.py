@@ -1,15 +1,13 @@
-# function to calculate all prime numbers using dynamic programming
-def prime(n):
-    primes = [True] * (n+1)
-    primes[0] = primes[1] = False
-    for i in range(2, int(n**0.5)+1):
-        if primes[i]:
-            # start from i*i because all numbers below i*i would have already been marked
-            for j in range(i*i, n+1, i): 
-                primes[j] = False
-    return primes
+# we will use the sieve of Eratosthenes to find all primes below a given number
+from math import sqrt
 
-primes = prime(100)
-for i in range(1, 101):
-    if primes[i]:
-        print(i, end=' ')
+def primes_sieve(limit):
+    nums =[True] * (limit + 1)
+    nums[0] = nums[1] = False
+    for i in range(2 , int(sqrt(limit)) + 1):
+        if nums[i]:
+            for j in range(i * i , limit + 1 , i):
+                nums[j] = False
+    return dict(enumerate(nums))
+
+print(primes_sieve(int(input("Enter the number: "))))
