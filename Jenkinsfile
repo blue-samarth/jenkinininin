@@ -5,7 +5,7 @@ pipeline{
         }
     }
     triggers{
-        pollSCM 'H/5 * * * *'
+        pollSCM '*/5 * * * *'
     }
     stages {
         stage('Build') {
@@ -13,6 +13,8 @@ pipeline{
                 echo "Building.."
                 sh '''
                 echo "doing build stuff.."
+                cd folder
+                pip install -r requirements.txt
                 '''
             }
         }
@@ -21,6 +23,9 @@ pipeline{
                 echo "Testing.."
                 sh '''
                 echo "doing test stuff.."
+                cd folder
+                python3 monsieur.py
+                python3 monsieur.py --name=Blue_Flames
                 '''
             }
         }
