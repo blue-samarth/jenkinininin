@@ -14,6 +14,8 @@ pipeline{
                 sh '''
                 echo "doing build stuff.."
                 cd folder
+                python3 -m venv venv
+                source venv/bin/activate
                 pip install -r requirements.txt
                 '''
             }
@@ -24,8 +26,9 @@ pipeline{
                 sh '''
                 echo "doing test stuff.."
                 cd folder
+                source venv/bin/activate
                 python3 monsieur.py
-                python3 monsieur.py --name=Blue_Flames
+                python3 monsieur.py --name=Jenkins
                 '''
             }
         }
