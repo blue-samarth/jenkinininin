@@ -17,6 +17,7 @@ if __name__ == "__main__":
         number = int(sys.argv[1])
         # primes_sieve(number)
         primes = [key for key, value in primes_sieve(number).items() if value]
-        print(primes)
+        count = len(primes)
+        print(primes , count)
     else:
         print("Please provide a number as a command-line argument.")
