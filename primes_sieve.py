@@ -15,6 +15,8 @@ def primes_sieve(limit):
 if __name__ == "__main__":
     if len(sys.argv) > 1:
         number = int(sys.argv[1])
-        print(primes_sieve(number))
+        # primes_sieve(number)
+        primes = [key for key, value in primes_sieve(number).items() if value]
+        print(primes)
     else:
         print("Please provide a number as a command-line argument.")
